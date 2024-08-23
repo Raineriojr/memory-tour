@@ -33,10 +33,10 @@ export const Home = () => {
         <div className='grid col-span-4 h-52 mr-4'>
           <div className='flex flex-col pb-1 justify-between'>
             <div className='flex flex-col gap-2'>
-              <p className='font-bold text-lg font-montserrat'>
+              <p className='font-bold text-lg font-montserrat text-gray-800'>
                 Quem Somos?
               </p>
-              <p className='font-medium text-[15px] font-montserrat'>
+              <p className='font-medium text-[15px] font-montserrat text-gray-700'>
                 Somos um museu virtual dedicado a preservar e
                 compartilhar a rica história, tradições, pontos turísticos e
                 culturas do Vale do Jari.
@@ -93,10 +93,10 @@ export const Home = () => {
               />
             </div>
             <div className='flex flex-1 flex-col gap-4'>
-              <p className='font-bold text-lg font-montserrat'>
+              <p className='font-bold text-lg font-montserrat text-gray-800'>
                 Vale do Jari
               </p>
-              <p className='font-medium text-[15px] font-montserrat leading-7'>
+              <p className='font-medium text-[15px] font-montserrat leading-7 text-gray-700'>
                 {history}
               </p>
             </div>
@@ -121,10 +121,10 @@ export const Home = () => {
               />
             </div>
             <div className='flex flex-1 flex-col gap-4'>
-              <p className='font-bold text-lg font-montserrat'>
+              <p className='font-bold text-lg font-montserrat text-gray-800'>
                 Populações Tradicionais
               </p>
-              <p className='font-medium text-[15px] font-montserrat leading-7'>
+              <p className='font-medium text-[15px] font-montserrat leading-7 text-gray-700'>
                 As etnias indígenas, como os Waiãpi e Apalai, têm uma presença
                 significativa na região. Eles mantêm suas línguas, costumes, rituais
                 e conhecimentos tradicionais sobre a floresta.
@@ -133,10 +133,10 @@ export const Home = () => {
           </div>
           <div className='flex gap-8'>
             <div className='flex flex-1 flex-col gap-4 justify-end'>
-              <p className='font-bold text-lg font-montserrat'>
+              <p className='font-bold text-lg font-montserrat text-gray-800'>
                 Festas e Celebrações
               </p>
-              <p className='font-medium text-[15px] font-montserrat leading-7'>
+              <p className='font-medium text-[15px] font-montserrat leading-7 text-gray-700'>
                 Festividades católicas, como o Círio de Nazaré e festas de santos
                 padroeiros, são comuns, com procissões, missas e celebrações
                 comunitárias.
@@ -171,10 +171,10 @@ export const Home = () => {
               />
             </div>
             <div className='flex flex-1 flex-col gap-4'>
-              <p className='font-bold text-lg font-montserrat'>
+              <p className='font-bold text-lg font-montserrat text-gray-800'>
                 Pontos Turísticos
               </p>
-              <p className='font-medium text-[15px] font-montserrat leading-7'>
+              <p className='font-medium text-[15px] font-montserrat leading-7 text-gray-700'>
                 A Cachoeira de Santo Antônio é uma das belezas naturais mais
                 notáveis na região de Laranjal do Jari, situada no estado do Amapá.
                 Ela é um destino popular para os moradores locais e visitantes,
@@ -185,10 +185,10 @@ export const Home = () => {
           </div>
           <div className='flex gap-8'>
             <div className='flex flex-1 flex-col gap-4 justify-end'>
-              <p className='font-bold text-lg font-montserrat'>
+              <p className='font-bold text-lg font-montserrat text-gray-800'>
                 Balneários
               </p>
-              <p className='font-medium text-[15px] font-montserrat leading-7'>
+              <p className='font-medium text-[15px] font-montserrat leading-7 text-gray-700'>
                 Este local oferece uma ótima opção de recreação e descanso,
                 especialmente para os moradores e visitantes que desejam
                 aproveitar as belezas naturais e o clima quente da região
@@ -210,6 +210,41 @@ export const Home = () => {
         <div className='grid col-span-12 h-fit bg-gradient-to-l from-[#974627] to-[#F6A41E] p-3 rounded-md'>
           <p className='font-montserrat font-bold text-xl text-white'>
             Publicidade
+          </p>
+        </div>
+
+        <div className='grid col-span-12'>
+          <Carousel>
+            <CarouselContent className="flex snap-x snap-mandatory">
+              {Array.from({ length: 8 }).map((_, index) => (
+                <CarouselItem
+                  key={index}
+                  className="pl-4 md:basis-1/2 lg:basis-1/5"
+                >
+                  <CardShop index={index} />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
+        </div>
+
+      </section>
+
+      <section id='subscription' className="grid grid-cols-12 px-32 gap-x-8 py-20 h-lvh bg-gray-100">
+        <div className='grid col-span-12 h-fit bg-gradient-to-l from-[#974627] to-[#F6A41E] p-3 rounded-md'>
+          <p className='font-montserrat font-bold text-xl text-white'>
+            Assinaturas
+          </p>
+        </div>
+
+        <div className='grid col-span-12 -mt-8'>
+          <p className='font-montserrat font-medium text-md text-gray-800'>
+            Aqui no Memory Tour, estamos comprometidos em trazer o fascínio do Vale do Jari diretamente
+            para você, onde quer que esteja. Com nossas assinaturas, mergulhe em um universo de
+            explorações cativantes, desde os pontos turísticos  até os festivais magníficos, tudo na palma da
+            sua mão.
           </p>
         </div>
 
