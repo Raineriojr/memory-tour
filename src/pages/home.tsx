@@ -42,11 +42,11 @@ export const Home = () => {
                 culturas do Vale do Jari.
               </p>
             </div>
-            <Button className='bg-gradient-to-r from-[#974627] to-[#F6A41E] text-[15px] font-montserrat font-semibold hover:opacity-85'>
-              <Link to='history' smooth={true} duration={500} offset={-50}>
+            <Link to='history' smooth={true} duration={500} offset={-50} style={{ width: '100%' }}>
+              <Button className='w-full bg-gradient-to-r from-[#974627] to-[#F6A41E] text-[15px] font-montserrat font-semibold hover:opacity-85'>
                 Começar
-              </Link>
-            </Button>
+              </Button>
+            </Link>
           </div>
         </div>
 
@@ -56,18 +56,21 @@ export const Home = () => {
               title='Laranjal do Jari'
               description='Frente da Cidade'
               image={Beira}
+              className='hover:scale-105'
             />
             <CardImage
               title='Bandeira de Laranjal Jari'
               description='Bandeira do Município'
               alt='Bandeira de Laranjal Jari'
               image={Bandeira}
+              className='hover:scale-105'
             />
             <CardImage
               title='João da Silva Nery'
               description='Praça central da cidade'
               alt='Praça João da Silva Nery'
               image={Praca}
+              className='hover:scale-105'
             />
           </div>
         </div>
@@ -86,7 +89,7 @@ export const Home = () => {
                 title='Laranjal do Jari'
                 description='Frente da Cidade - Rio Jari'
                 image={FrenteCidade}
-                className='flex-1 h-full hover:scale-100'
+                className='flex-1 h-full'
               />
             </div>
             <div className='flex flex-1 flex-col gap-4'>
@@ -114,7 +117,7 @@ export const Home = () => {
                 title='Populações Indígenas'
                 description='Apina - Conselho das Aldeias Wajãpi'
                 image={Indigena}
-                className='flex-1 h-full hover:scale-100'
+                className='flex-1 h-full'
               />
             </div>
             <div className='flex flex-1 flex-col gap-4'>
@@ -144,7 +147,7 @@ export const Home = () => {
                 title='Show Nacional'
                 description='Aniversário de Laranjal do Jari'
                 image={Show}
-                className='flex-1 h-full hover:scale-100'
+                className='flex-1 h-full'
               />
             </div>
           </div>
@@ -164,7 +167,7 @@ export const Home = () => {
                 title='Cachoeira de Santo Antônio'
                 description='Rio Jari'
                 image={Cachoeira}
-                className='flex-1 h-full hover:scale-100'
+                className='flex-1 h-full'
               />
             </div>
             <div className='flex flex-1 flex-col gap-4'>
@@ -196,7 +199,7 @@ export const Home = () => {
                 title='Sobra da Mata'
                 description='Balneário local'
                 image={Balneario}
-                className='flex-1 h-full hover:scale-100'
+                className='flex-1 h-full'
               />
             </div>
           </div>

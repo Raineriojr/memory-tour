@@ -8,7 +8,7 @@ interface ICardImageProps {
 }
 export const CardImage = ({ image, alt, title, description, className }: ICardImageProps) => {
   return (
-    <div className={`flex flex-col gap-2 h-40 hover:scale-105 duration-300 w-64 pb-1 ${className}`}>
+    <div className={`flex flex-col gap-2 h-40 duration-300 w-64 pb-1 ${className}`}>
       <img
         src={image}
         alt={alt}
