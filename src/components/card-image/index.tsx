@@ -15,7 +15,7 @@ export const CardImage = ({ image, alt, title, description, className }: ICardIm
         className='w-full h-full rounded-md'
       />
       <div className='flex flex-col gap-y-1'>
-        <h3 className="font-semibold font-merriweather leading-none text-sm">
+        <h3 className="font-semibold font-merriweather leading-none text-sm text-gray-800">
           {title}
         </h3>
         <p className="text-xs font-merriweather font-normal text-gray-500">
