@@ -4,6 +4,6 @@ export const links = [
   { to: "culture", title: "Cultura" },
   { to: "leisure", title: "Lazer" },
   { to: "advertising", title: "Publicidades" },
-  { to: "#", title: "Assinaturas" },
-  { to: "#", title: "Contato" },
+  { to: "subscription", title: "Assinaturas" },
+  { to: "contact", title: "Contato" },
 ]
