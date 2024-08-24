@@ -302,13 +302,19 @@ export const Home = () => {
               E-mails para contato:
             </p>
             <li className='font-medium text-[15px] font-montserrat leading-7 text-gray-700'>
+              memorytour24@gmail.com
+            </li>
+            <li className='font-medium text-[15px] font-montserrat leading-7 text-gray-700'>
               aguiaryasmim39@gmail.com
             </li>
             <li className='font-medium text-[15px] font-montserrat leading-7 text-gray-700'>
-              tatiana.costa@ifap.edu.br
+              felipegabriel069@gmail.com
             </li>
             <li className='font-medium text-[15px] font-montserrat leading-7 text-gray-700'>
               ingridgoesbarbosa@gmail.com
+            </li>
+            <li className='font-medium text-[15px] font-montserrat leading-7 text-gray-700'>
+              tatiana.costa@ifap.edu.br
             </li>
           </div>
         </div>
