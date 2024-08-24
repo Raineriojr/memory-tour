@@ -1,6 +1,7 @@
 import { Header } from '@/components/layout/header';
-import { history } from '@/content';
+import { history, subscribeCardValues } from '@/content';
 import { Link } from 'react-scroll';
+import { Link as RouterLink } from 'react-router-dom';
 
 import Balneario from '@assets/balneario.jpeg';
 import Bandeira from '@assets/bandeira.jpeg';
@@ -12,12 +13,22 @@ import Show from '@assets/show.jpeg';
 import FrenteCidade from '@assets/frente-cidade.jpg';
 import Indigena from '@assets/indigena.jpg';
 
-import { CardImage, CardShop } from '@/components';
-import { Button, Card, CardContent, Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui';
+import { CardImage, CardShop, CardSubscription } from '@/components';
+import { Button, Card, CardContent, Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, Form, FormControl, FormField, FormItem, FormLabel, FormMessage, Input, Textarea } from '@/components/ui';
+import { FormProvider, useForm } from 'react-hook-form';
 
 export const Home = () => {
+  const form = useForm({
+    defaultValues: {
+      name: '',
+      email: '',
+      contact: '',
+      message: ''
+    }
+  });
+
   return (
-    <main className='mb-28'>
+    <main>
       <section id='header' className="grid grid-cols-12 px-32 pt-16 pb-4 gap-x-8 gap-y-4 h-lvh bg-[#F4F3F1]">
         <div className='grid col-span-12'>
           <Header />
@@ -206,7 +217,7 @@ export const Home = () => {
         </div>
       </section>
 
-      <section id='advertising' className="grid grid-cols-12 px-32 gap-x-8 py-20 h-lvh bg-gray-100">
+      <section id='advertising' className="grid grid-cols-12 px-32 gap-x-8 py-20 h-lvh bg-[#F4F3F1]">
         <div className='grid col-span-12 h-fit bg-gradient-to-l from-[#974627] to-[#F6A41E] p-3 rounded-md'>
           <p className='font-montserrat font-bold text-xl text-white'>
             Publicidade
@@ -229,17 +240,16 @@ export const Home = () => {
             <CarouselNext />
           </Carousel>
         </div>
-
       </section>
 
-      <section id='subscription' className="grid grid-cols-12 px-32 gap-x-8 py-20 h-lvh bg-gray-100">
+      <section id='subscription' className="grid grid-cols-12 px-32 gap-x-8 gap-y-8 py-20 h-lvh bg-gray-100">
         <div className='grid col-span-12 h-fit bg-gradient-to-l from-[#974627] to-[#F6A41E] p-3 rounded-md'>
           <p className='font-montserrat font-bold text-xl text-white'>
             Assinaturas
           </p>
         </div>
 
-        <div className='grid col-span-12 -mt-8'>
+        <div className='grid col-span-12'>
           <p className='font-montserrat font-medium text-md text-gray-800'>
             Aqui no Memory Tour, estamos comprometidos em trazer o fascínio do Vale do Jari diretamente
             para você, onde quer que esteja. Com nossas assinaturas, mergulhe em um universo de
@@ -251,12 +261,20 @@ export const Home = () => {
         <div className='grid col-span-12'>
           <Carousel>
             <CarouselContent className="flex snap-x snap-mandatory">
-              {Array.from({ length: 8 }).map((_, index) => (
+              {subscribeCardValues.map((item, index) => (
                 <CarouselItem
                   key={index}
-                  className="pl-4 md:basis-1/2 lg:basis-1/5"
+                  className="pl-4 md:basis-1/2 lg:basis-1/4"
                 >
-                  <CardShop index={index} />
+                  <CardSubscription
+                    key={index}
+                    title={item.title}
+                    description={item.description}
+                    value={item.value}
+                    items={item.items}
+                    Icon={item.Icon}
+                    bgColor={item.bgColor}
+                  />
                 </CarouselItem>
               ))}
             </CarouselContent>
@@ -264,7 +282,117 @@ export const Home = () => {
             <CarouselNext />
           </Carousel>
         </div>
+      </section>
 
+      <section id='contact' className="grid grid-cols-12 px-32 gap-x-8 py-20 h-lvh bg-[#F4F3F1]">
+        <div className='grid col-span-12 h-fit bg-gradient-to-l from-[#974627] to-[#F6A41E] p-3 rounded-md'>
+          <p className='font-montserrat font-bold text-xl text-white'>
+            Contato
+          </p>
+        </div>
+
+        <div className='grid col-span-5 mt-4'>
+          <div className='flex flex-col gap-6'>
+            <p className='font-medium text-[15px] font-montserrat leading-7 text-gray-700'>
+              Agradecemos o seu interesse em nosso museu virtual!
+              Estamos aqui para ajudá-lo(a) com qualquer dúvida,
+              sugestão ou comentário que possa ter.
+            </p>
+            <p className='font-bold text-lg font-montserrat text-gray-800'>
+              E-mails para contato:
+            </p>
+            <li className='font-medium text-[15px] font-montserrat leading-7 text-gray-700'>
+              aguiaryasmim39@gmail.com
+            </li>
+            <li className='font-medium text-[15px] font-montserrat leading-7 text-gray-700'>
+              tatiana.costa@ifap.edu.br
+            </li>
+            <li className='font-medium text-[15px] font-montserrat leading-7 text-gray-700'>
+              ingridgoesbarbosa@gmail.com
+            </li>
+          </div>
+        </div>
+
+        <div className='grid col-span-7 mt-4'>
+          <Card>
+            <CardContent className='py-4 space-y-4'>
+              <FormProvider {...form}>
+                <FormField
+                  control={form.control}
+                  name="name"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Nome</FormLabel>
+                      <FormControl>
+                        <Input placeholder="Informe seu nome" />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="email"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Email</FormLabel>
+                      <FormControl>
+                        <Input placeholder="email@email.com" />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="contact"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Contato</FormLabel>
+                      <FormControl>
+                        <Input placeholder="(00) 0000-0000" />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="message"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Mensagem</FormLabel>
+                      <FormControl>
+                        <Textarea className='h-24 resize-none' placeholder="Digite sua mensagem" />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <div className='flex justify-end'>
+                  <Button className='w-36 bg-gradient-to-l from-[#974627] to-[#F6A41E] hover:opacity-85'>
+                    Enviar
+                  </Button>
+                </div>
+              </FormProvider>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      <section id='footer' className="select-none flex flex-1 h-24 items-center justify-center bg-gradient-to-l from-[#974627] to-[#F6A41E]">
+        <div className='flex gap-2 items-center'>
+          <p className='font-merriweather font-semibold text-xs text-gray-200'>
+            Desenvolvido por:
+          </p>
+          <RouterLink
+            to='https://www.linkedin.com/in/rainerio-costa/'
+            target='_blank'
+            className='font-merriweather font-medium text-xs text-gray-200'
+          >
+            Rainério Costa ⭐️
+          </RouterLink>
+        </div>
       </section>
     </main >
   )
